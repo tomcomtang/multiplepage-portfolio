@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { postsConfig } from "@/config/posts";
 import { notFound } from 'next/navigation';
 
-// 生成静态路径
+// Generate static paths
 export async function generateStaticParams() {
   return postsConfig.posts.map((post) => ({
     slug: post.slug.replace('posts/', ''),

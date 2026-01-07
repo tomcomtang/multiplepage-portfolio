@@ -5,7 +5,7 @@ export default function TechBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 监听主题变化
+    // Listen for theme changes
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
@@ -20,11 +20,11 @@ export default function TechBackground() {
       attributeFilter: ['class'],
     });
 
-    // 初始化主题
+    // Initialize theme
     const isDark = document.documentElement.classList.contains('dark');
     setTheme(isDark ? 'dark' : 'light');
 
-    // 添加事件监听器
+    // Add event listeners
     const container = containerRef.current;
     if (container) {
       const handleMouseEnter = () => {
@@ -52,7 +52,7 @@ export default function TechBackground() {
 
   return (
     <>
-      {/* 测试用的悬浮层 */}
+      {/* Test overlay layer */}
       <div 
         className="fixed left-[270px] top-1/2 -translate-y-1/2 w-[800px] h-[800px] 
           bg-blue-500/50 hover:bg-green-500/50 transition-colors duration-300
@@ -64,7 +64,7 @@ export default function TechBackground() {
         </div>
       </div>
 
-      {/* 原有的背景 */}
+      {/* Original background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div 
           ref={containerRef}

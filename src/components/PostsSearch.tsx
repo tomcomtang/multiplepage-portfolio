@@ -13,7 +13,7 @@ export default function PostsSearch() {
 
   useEffect(() => {
     setMounted(true);
-    // 监听搜索框的变化
+    // Listen for search box changes
     // const searchInput = document.querySelector('input[type="text"]') as HTMLInputElement;
     // if (searchInput) {
     //   const handleInput = (e: Event) => {

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { homeConfig } from '@/config/home';
 
-// 将主题相关的逻辑移到这个客户端组件中
+// Move theme-related logic to this client component
 function ThemeAwareImage() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState('light');
@@ -67,7 +67,7 @@ function ThemeAwareImage() {
   );
 }
 
-// 服务器组件版本的HomeContent
+// Server component version of HomeContent
 export default function HomeContent() {
   return (
     <div className="flex-1 flex items-center" style={{ transform: 'translateY(-50px)' }}>

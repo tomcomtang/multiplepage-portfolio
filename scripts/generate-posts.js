@@ -3,7 +3,7 @@ const path = require('path');
 const matter = require('gray-matter');
 const { marked } = require('marked');
 
-// 配置 marked 选项
+// Configure marked options
 marked.setOptions({
   gfm: true,
   breaks: true,
@@ -11,41 +11,41 @@ marked.setOptions({
   mangle: false
 });
 
-// 从文件名生成 slug
+// Generate slug from filename
 function generateSlug(filename) {
-  // 移除 .md 扩展名
+  // Remove .md extension
   const nameWithoutExt = filename.replace(/\.md$/, '');
-  // 将文件名转换为小写并用连字符替换空格
+  // Convert filename to lowercase and replace spaces with hyphens
   return `posts/${nameWithoutExt.toLowerCase().replace(/\s+/g, '-')}`;
 }
 
-// 读取 posts 目录下的所有 md 文件
+// Read all md files from posts directory
 const postsDirectory = path.join(__dirname, '../src/posts');
 const posts = [];
 
-// 读取所有 md 文件
+// Read all md files
 const files = fs.readdirSync(postsDirectory);
 for (const file of files) {
   if (file.endsWith('.md')) {
     const filePath = path.join(postsDirectory, file);
     const fileContent = fs.readFileSync(filePath, 'utf8');
     
-    // 解析 frontmatter
+    // Parse frontmatter
     const { data, content } = matter(fileContent);
     
-    // 生成 HTML
+    // Generate HTML
     const html = marked.parse(content);
     
-    // 创建 post 对象
+    // Create post object
     const post = {
       title: data.title,
       description: data.description,
-      date: data.date || "2024-03-20", // 添加默认日期
+      date: data.date || "2024-03-20", // Add default date
       image: data.image,
-      slug: generateSlug(file), // 使用文件名生成 slug
+      slug: generateSlug(file), // Generate slug from filename
       tags: data.tags,
       author: data.author,
-      readTime: data.readTime || "5", // 添加默认阅读时间
+      readTime: data.readTime || "5", // Add default read time
       content: content,
       html: html
     };
@@ -64,7 +64,7 @@ for (const file of files) {
   }
 }
 
-// 生成 posts.ts 文件内容
+// Generate posts.ts file content
 const postsConfig = {
   title: "Blog Posts",
   description: "Technical articles, tutorials, and insights about web development and EdgeOne platform.",
@@ -78,14 +78,14 @@ const postsConfig = {
   posts: posts
 };
 
-// 生成 TypeScript 文件内容
+// Generate TypeScript file content
 const tsContent = `// This file is auto-generated. Do not edit manually.
 import { Post } from '@/types/post';
 
 export const postsConfig = ${JSON.stringify(postsConfig, null, 2)} as const;
 `;
 
-// 写入文件
+// Write file
 const outputPath = path.join(__dirname, '../src/config/posts.ts');
 fs.writeFileSync(outputPath, tsContent);
 

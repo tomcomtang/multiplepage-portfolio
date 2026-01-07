@@ -15,7 +15,7 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  // 当路由变化时关闭菜单
+  // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);

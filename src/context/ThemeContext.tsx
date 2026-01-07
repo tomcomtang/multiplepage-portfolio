@@ -12,7 +12,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // 初始化时从 localStorage 或系统偏好获取主题
+  // Initialize theme from localStorage or system preference
   const getInitialTheme = (): Theme => {
     if (typeof window !== 'undefined') {
       const storedTheme = localStorage.getItem('theme') as Theme;
@@ -29,7 +29,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [mounted, setMounted] = useState(false);
 
-  // 监听主题变化并更新 DOM
+  // Listen for theme changes and update DOM
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
@@ -39,7 +39,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [theme]);
 
-  // 在客户端挂载后设置 mounted 状态
+  // Set mounted state after client-side mount
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -48,7 +48,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    // 强制更新 DOM
+    // Force update DOM
     const root = document.documentElement;
     if (newTheme === 'dark') {
       root.classList.add('dark');
@@ -57,7 +57,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // 在客户端挂载前，返回一个与初始主题匹配的上下文
+  // Return a context matching the initial theme before client-side mount
   if (!mounted) {
     return (
       <ThemeContext.Provider value={{ theme: getInitialTheme(), toggleTheme }}>
