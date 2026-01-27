@@ -1,9 +1,9 @@
 export const globalConfig = {
   site: {
-    name: "Your Portfolio Name",
-    author: "Your Name",
-    description: "A brief description of your portfolio website",
-    url: "/"
+    name: "Mochamad Miftah Rachmatullah",
+    author: "Miftah Rachmatullah",
+    description: "Hey there, I'm a UI/UX Designer based in Indonesian. I'm all about that minimalistic vibe, with a passion for Visual Design",
+    url: "https://drive.google.com/file/d/1s0O6hAYp4VQveGV1KbytI5ELG-5mlBzv/view"
   },
   navigation: {
     aria: "Main Navigation",
@@ -28,11 +28,11 @@ export const globalConfig = {
   },
   footer: {
     aria: "Footer Navigation",
-    copyright: "© 2025 Your Name. All rights reserved.",
+    copyright: "© 2026 Miftah Rachmatullah. All rights reserved.",
     social: {
       twitter: "https://x.com/TencentCloudEO",
-      github: "https://github.com/TencentEdgeOne",
-      email: "media_service@tencent.com"
+      github: "https://github.com/miftahrachmatullah",
+      email: "mochamadmiftah34@gmail.com"
     }
   }
 } as const; 
