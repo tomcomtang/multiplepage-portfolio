@@ -1,9 +1,8 @@
 export const contactConfig = {
   title: "Contact",
   description: "Get in touch with me for collaboration opportunities, questions, or just to say hello. I'm always open to discussing new projects and ideas.",
-  email: "your.email@example.com",
-  phone: "+1 (555) 123-4567",
-  address: "123 Main Street, City, Country",
+  email: "mochamadmiftah34@gmail.com",
+  address: "Bogor, Indonesia",
   social: [
     {
       name: "Twitter",
@@ -12,12 +11,12 @@ export const contactConfig = {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/miftahrachmatullah",
       icon: "linkedin"
     },
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/miftahrachmatullah",
       icon: "github"
     }
   ]
