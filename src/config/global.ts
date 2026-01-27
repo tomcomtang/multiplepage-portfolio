@@ -30,7 +30,7 @@ export const globalConfig = {
     aria: "Footer Navigation",
     copyright: "© 2026 Miftah Rachmatullah. All rights reserved.",
     social: {
-      linkedin: "https://www.linkedin.com/in/miftahrachmatullah",
+      twitter: "https://x.com/TencentCloudEO",
       github: "https://github.com/miftahrachmatullah",
       email: "mochamadmiftah34@gmail.com"
     }
